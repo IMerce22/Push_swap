@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 13:18:23 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/15 17:55:26 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:33:31 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static long	ft_atol(const char* str)
 	numb = 0;
 	i = 0;
 	symbol = 1;
-	while(str[i] && ((str[i] >= 7 && str[i] <= 13) || str[i] == 32))// passo a fresnte os espacos em banco
+	while(str[i] && ((str[i] >= 7 && str[i] <= 13) || str[i] == 32))
 		i++;
 	if(str[i] == '+' || str[i] == '-')
 	{
@@ -37,7 +37,6 @@ static long	ft_atol(const char* str)
 	return(numb * symbol);
 }
 
-//Funcao para adicionar numeros `a stack
 t_stack_node	*ft_last_node(t_stack_node *head)
 {
 	t_stack_node *last_node;
@@ -60,7 +59,7 @@ void	attach_to_node(t_stack_node **stack, int nbr)
 		return ;
 	new_node->next = NULL;
 	new_node->number = nbr;
-	new_node->has_already_index = false;
+	new_node->index = -1;
 	if(*stack == NULL)
 	{
 		*stack = new_node;
@@ -73,34 +72,36 @@ void	attach_to_node(t_stack_node **stack, int nbr)
 		new_node->prev = last_node;
 	}
 }
+
 void	ft_get_index(t_stack_node **a)
 {
-	int 			index;
+	int 			id;
 	int 			size;
 	int				smallest;
 	t_stack_node	*tmp;
 
-	index = 0;
-	size = ft_listsize(*a);
-	while (index < size)
+	id = -1;
+	size = ft_listsize(a);
+	while (++id < size)
 	{
-		smallest = smallest_number_index(*a);
-		if (smallest == -1) // Se não há mais números disponíveis, sai do loop
-            break;
 		tmp = *a;
+		smallest = INT_MAX;
 		while (tmp)
 		{
-			if (tmp->number == smallest && !tmp->has_already_index)
-			{
-				tmp->index = index;
-				tmp->has_already_index = true;
-				break;// Para evitar atribuir o mesmo índice a múltiplos nós
-			}
+			if (tmp->number < smallest && tmp->index == -1)
+				smallest = tmp->number;
 			tmp = tmp->next;
 		}
-		index++;
+		tmp = *a;
+		while(tmp)
+		{
+			if(tmp->number == smallest && tmp->index == -1)
+				tmp->index = id;
+			tmp = tmp->next;
+		}
 	}
-}	
+}
+
 void	stack_init(t_stack_node **a, char **av, bool splited)
 {
 	int		i;

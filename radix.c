@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:13:39 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/15 18:20:15 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:21:10 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,22 @@ void	radix_algorithm(t_stack_node **a, t_stack_node **b)
 	int				size;
 	int				max_bits;
 	
-	i = 0;
+	i = -1;
 	head = *a;
-	size = ft_listsize(head);
+	size = ft_listsize(&head);
 	max_bits = ft_max_bits(a);
-	while(i < max_bits)//iteracao desde o LSB ate ao MSB
+	while(++i < max_bits)//iteracao desde o LSB ate ao MSB
 	{
 		j = 0;
 		while (j++ < size)// rodar todos os nodes da lista
 		{
 			head = *a;
 			if(((head->index >> i) & 1) == 1)
-				ra(*a);
-			pb(*a, *b);  
+				ra(a);
+			else
+				pb(a, b);  
 		}
-		while(ft_listsize(*b))
-			pa(*a, *b);
-		i++;
+		while(ft_listsize(b))
+			pa(a, b);
 	}
 }

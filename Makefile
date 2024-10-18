@@ -6,7 +6,7 @@
 #    By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 16:50:58 by insoares          #+#    #+#              #
-#    Updated: 2024/10/15 17:55:04 by insoares         ###   ########.fr        #
+#    Updated: 2024/10/17 17:36:35 by insoares         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = libft/libft.a
 NAME = push_swap
 PUSH_SWAP_FUNC = 	main.c ft_split_ps.c stack_init.c error_free_funcs.c error_free_funcs_2.c\
 					sort_stack_funcs.c swap.c push.c rotate.c reverse_rotate.c simple_sort.c\
-					radix.c stack_init_utils.c 
+					radix.c
 PUSH_SWAP_OBJS = $(PUSH_SWAP_FUNC:.c=.o)
 
 

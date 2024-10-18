@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:42:11 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/12 16:51:38 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/18 11:06:13 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,15 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+t_stack_node	**ft_firstnode(t_stack_node **stack)
+{
+	t_stack_node **first_node;
+	
+	if(!stack || !*stack)
+		return(NULL);
+	first_node = stack;
+	if((*first_node)->prev != NULL)
+		(*first_node) = (*first_node)->prev;
+	return (first_node);
 }

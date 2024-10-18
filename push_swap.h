@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 16:40:00 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/15 18:17:29 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/18 11:01:18 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ typedef struct s_stack_node
 {
 	int					number;
 	int					index;
-	bool				has_already_index;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }	t_stack_node;
 
 //-------------------------------error_free_funcs.2.c
 void			free_split(char **split);
+t_stack_node	**ft_firstnode(t_stack_node **stack);
 
 //-------------------------------error_free_funcs.c
 void			ft_free_stack(t_stack_node **stack);
@@ -58,46 +58,42 @@ void			stack_init(t_stack_node **a, char **av, bool splited);
 
 // --------------------------- comando PUSH
 /* static void		push(t_stack_node *src, t_stack_node *dest); */
-void			pa(t_stack_node *a, t_stack_node *b);
-void			pb(t_stack_node *a, t_stack_node *b);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **a, t_stack_node **b);
 
 // -------------------------- comando SWAP
 /* static void		swap(t_stack_node *head); */
-void 			sa(t_stack_node *a);
-void 			sb(t_stack_node *b);
-void 			ss(t_stack_node *a, t_stack_node *b);
+void 			sa(t_stack_node **a);
+void 			sb(t_stack_node **b);
+void 			ss(t_stack_node **a, t_stack_node **b);
 
 // -------------------------- comando ROTATE
 /* static void		rotate(t_stack_node *head); */
-void			ra(t_stack_node *a);
-void			rb(t_stack_node *b);
-void			rr(t_stack_node *a, t_stack_node *b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
 
 // -------------------------- comando REVERSE_ROTATE
 /* static void		reverse_rotate(t_stack_node *head); */
-void			rra(t_stack_node *a);
-void			rrb(t_stack_node *b);
-void			rrr(t_stack_node *a, t_stack_node *b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 
 //-----------------------------sort_stack_funcs.c
-size_t			ft_listsize(t_stack_node *stack);
+size_t			ft_listsize(t_stack_node **stack);
 int				smallest_number(t_stack_node *a);
-bool			ft_sorted(t_stack_node *stack);
+bool			ft_sorted(t_stack_node **stack);
 void			sort_stack(t_stack_node **a, t_stack_node **b);
 
 // -------------------------- simple_sort.c
-void			ft_sort_3(t_stack_node *a);
-void			ft_sort_4_and_5(t_stack_node *a, t_stack_node *b);
-int				which_rotation(t_stack_node *a);
-void			ft_simple_sort(t_stack_node *a, t_stack_node *b);
+void			ft_sort_3(t_stack_node **a);
+void			ft_sort_4_and_5(t_stack_node **a, t_stack_node **b);
+int				which_rotation(t_stack_node **a);
+void			ft_simple_sort(t_stack_node **a, t_stack_node **b);
 
 // --------------------------- radix.c
 int				biggest_numbr(t_stack_node *a);
 int				ft_max_bits(t_stack_node **stack);
 void			radix_algorithm(t_stack_node **a, t_stack_node **b);
-
-// --------------------------- stack_init_utils.c
-int 			smallest_number_index(t_stack_node *a);
-
 
 #endif

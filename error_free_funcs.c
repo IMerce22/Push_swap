@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:06:27 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/14 13:51:12 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:40:24 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_free_stack(t_stack_node **stack)
 	t_stack_node	*tmp;
 	t_stack_node	*now;
 
+	stack = ft_firstnode(stack);
 	if(stack == NULL)
 		return ;
 	now = *stack;
@@ -42,7 +43,7 @@ void	ft_free_stack(t_stack_node **stack)
 		free(now);
 		now = tmp;
 	}
-	*stack = NULL;
+	stack = NULL;
 }
 //error se o numero nao e valido
 //Esta funcao tem um bool porque se o input for escrti como um str temos de dar free por ter sido aplicado o split
@@ -52,7 +53,7 @@ void	error_free(t_stack_node **a, char **av, bool splited)
 	ft_free_stack(a);
 	if(splited)
 		ft_free_matrix(av);
-	ft_printf("ERROR");
+	ft_printf("ERROR\n");
 	exit(1);// encerra a execucao do programa de forma controlada e limpa. 
 			//executa funções de término necessárias (fecha arquivos abertos, liberta memória, etc.)
 }
