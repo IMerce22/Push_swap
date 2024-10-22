@@ -6,16 +6,16 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 14:29:42 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/18 11:20:47 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:30:28 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	build_the_stack(int ac, char** av, t_stack_node **a)
+void	build_the_stack(int ac, char **av, t_stack_node **a)
 {
-	char			**matrix;
-	
+	char	**matrix;
+
 	if (ac == 2)
 	{
 		matrix = ft_split_ps(av[1], ' ');
@@ -26,21 +26,21 @@ void	build_the_stack(int ac, char** av, t_stack_node **a)
 		stack_init(a, av + 1, false);
 }
 
-int	main(int ac, char** av)
+int	main(int ac, char **av)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	
+
 	a = NULL;
 	b = NULL;
-	if(ac == 1 || (ac == 2 && (!av[1][0])))
+	if (ac == 1 || (ac == 2 && (!av[1][0])))
 		return (-1);
-	build_the_stack(ac, av, &a);
-	if(ft_sorted(&a) == true)
+	build_the_stack (ac, av, &a);
+	if (ft_sorted(&a) == true)
 	{
 		ft_free_stack(&a);
 		ft_free_stack(&b);
-		return(0);
+		return (0);
 	}
 	else if (ft_sorted(&a) == false)
 	{
@@ -48,5 +48,5 @@ int	main(int ac, char** av)
 		ft_free_stack(&a);
 		ft_free_stack(&b);
 	}
-	return(0);
+	return (0);
 }
