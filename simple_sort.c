@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 10:54:41 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/22 18:07:04 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:04:09 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_sort_3(t_stack_node **a)
 {
-	t_stack_node	*tmp;
+	t_stack_node	**tmp;
 
-	tmp = *a;
-	if (ft_sorted(&tmp))
+	tmp = a;
+	if (ft_sorted(*tmp))
 		return ;
-	while (!(ft_sorted(&tmp)))
+	while (!(ft_sorted(*tmp)))
 	{
-		if (tmp->number > tmp->next->number)
-			sa(&tmp);
+		if ((*tmp)->number > (*tmp)->next->number)
+			sa(tmp);
 		else
-			rra(&tmp);
+			rra(tmp);
 	}
 }
 
@@ -42,11 +42,15 @@ void	ft_sort_4_and_5(t_stack_node **a, t_stack_node **b)
 		while ((*a)->number != smallest && (*a)->next)
 		{
 			if (rotation == 1)
+			{
 				ra(a);
+			}
 			else
 				rra(a);
 		}
 		pb(a, b);
+		if(size == 5)
+			smallest = smallest_number(*a);
 		size--;
 	}
 	ft_sort_3(a);
@@ -77,8 +81,7 @@ int	which_rotation(t_stack_node *a)
 	}
 	if (index_of_the_smallest < size)
 		return (1);
-	else
-		return (-1);
+	return (-1);
 }
 
 void	ft_simple_sort(t_stack_node **a, t_stack_node **b)
@@ -86,7 +89,7 @@ void	ft_simple_sort(t_stack_node **a, t_stack_node **b)
 	int	size;
 
 	size = ft_listsize(*a);
-	if (ft_sorted(a) || size == 0 || size == 1)
+	if (ft_sorted(*a) || size == 0 || size == 1)
 		return ;
 	if (size == 2)
 		sa(a);

@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 16:40:00 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/22 11:09:19 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:02:28 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int				count_words(char *str, char separator);
 void			build_the_stack(int ac, char **av, t_stack_node **a);
 
 // ----------------------------stack_init.c
-/* static long		ft_atol(const char* str); */
+/*long		ft_atol(const char* str); */
 t_stack_node	*ft_last_node(t_stack_node *head);
 void			attach_to_node(t_stack_node **stack, int nbr);
 void			ft_get_index(t_stack_node **a);
@@ -62,7 +62,7 @@ void			pa(t_stack_node **a, t_stack_node **b);
 void			pb(t_stack_node **a, t_stack_node **b);
 
 // -------------------------- comando SWAP
-/* static void		swap(t_stack_node *head); */
+/*void		swap(t_stack_node *head); */
 void			sa(t_stack_node **a);
 void			sb(t_stack_node **b);
 void			ss(t_stack_node **a, t_stack_node **b);
@@ -82,7 +82,7 @@ void			rrr(t_stack_node **a, t_stack_node **b);
 //-----------------------------sort_stack_funcs.c
 size_t			ft_listsize(t_stack_node *stack);
 int				smallest_number(t_stack_node *a);
-bool			ft_sorted(t_stack_node **stack);
+bool			ft_sorted(t_stack_node *stack);
 void			sort_stack(t_stack_node **a, t_stack_node **b);
 
 // -------------------------- simple_sort.c

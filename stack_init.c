@@ -6,13 +6,13 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 13:18:23 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/22 18:07:22 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/22 18:19:04 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	numb;
 	int		i;

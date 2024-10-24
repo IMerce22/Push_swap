@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 11:16:24 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/22 18:08:09 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:02:16 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	smallest_number(t_stack_node *a)
 	return (smallest);
 }
 
-bool	ft_sorted(t_stack_node **stack)
+bool	ft_sorted(t_stack_node *stack)
 {
 	t_stack_node	*temp;
 
-	temp = *stack;
+	temp = stack;
 	if (temp == NULL)
 		return (1);
 	while ((temp)->next)

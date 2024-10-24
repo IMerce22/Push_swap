@@ -6,15 +6,15 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 10:28:43 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/22 11:17:21 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:58:25 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack_node **head)
+void	swap(t_stack_node **head)
 {
-	if (head == NULL || ft_listsize(*head) == 1)
+	if (*head == NULL || ft_listsize(*head) == 1)
 		return ;
 	*head = (*head)->next;
 	(*head)->prev->prev = *head;
