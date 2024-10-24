@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 10:54:41 by insoares          #+#    #+#             */
-/*   Updated: 2024/10/24 11:04:09 by insoares         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:08:39 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,12 @@ void	ft_sort_4_and_5(t_stack_node **a, t_stack_node **b)
 		while ((*a)->number != smallest && (*a)->next)
 		{
 			if (rotation == 1)
-			{
 				ra(a);
-			}
 			else
 				rra(a);
 		}
 		pb(a, b);
-		if(size == 5)
+		if (size == 5)
 			smallest = smallest_number(*a);
 		size--;
 	}
